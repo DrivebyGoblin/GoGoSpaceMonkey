@@ -7,14 +7,11 @@ public class Bullet : MonoBehaviour
 {
     private float _bulletSpeed;
     private Vector3 _direction;
-    
-    
+
 
 
     public void BulletMovement(Vector3 direction, float speed)
-    {
-
-        
+    {    
         _direction = direction;
         _bulletSpeed = speed;
         transform.Translate(_direction * speed * Time.deltaTime);
@@ -22,7 +19,14 @@ public class Bullet : MonoBehaviour
 
     private void Update()
     {
-        BulletMovement(_direction, _bulletSpeed);
-        
+        BulletMovement(_direction, _bulletSpeed);      
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Recharge"))
+        {            
+            gameObject.SetActive(false);
+        }
     }
 }

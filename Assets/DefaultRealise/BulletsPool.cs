@@ -9,6 +9,8 @@ public class BulletsPool : MonoBehaviour
     [SerializeField] private Transform _bulletSpawnPos;
 
 
+    
+
     private List<Bullet> _bullets;
 
     public void CreatePool(Bullet prefab, int startCount)
@@ -28,12 +30,12 @@ public class BulletsPool : MonoBehaviour
 
     private void OnDisable()
     {
-        Enemy.onBulletCollided -= Release;
+        EnemyDeath.onBulletCollided -= Release;
     }
 
     private void OnEnable()
     {
-        Enemy.onBulletCollided += Release;
+        EnemyDeath.onBulletCollided += Release;
     }
 
     public Bullet GetFreeElement()
@@ -54,7 +56,6 @@ public class BulletsPool : MonoBehaviour
     public void Release(Bullet obj)
     {
         obj.gameObject.SetActive(false);
-        print("itsWoork");
     }
 
     public Bullet Create()

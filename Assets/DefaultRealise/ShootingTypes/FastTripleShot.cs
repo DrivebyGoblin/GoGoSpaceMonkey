@@ -2,17 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FastTripleShot : MonoBehaviour
+public class FastTripleShot : ShotSystem
 {
-    // Start is called before the first frame update
-    void Start()
+    public FastTripleShot() : base(1, new List<Vector3>() { new Vector3(1f, -0.11f, 0f), new Vector3(1f, 0.11f, 0), new Vector3(1f, 0f, 0f) }, 10)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        _bulletDirections.Add(_bulletDirections[2]);
     }
 }

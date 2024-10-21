@@ -36,6 +36,6 @@ public class Player : MonoBehaviour
             Shot();
         }
 
-
+        //print(_shotSystem);
     }
 }

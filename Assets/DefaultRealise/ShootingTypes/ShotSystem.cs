@@ -5,7 +5,7 @@ using UnityEngine;
 
 public abstract class ShotSystem
 {
-    protected const float _bulletSpeed = 4f;
+    protected const float _bulletSpeed = 7f;
     protected int _delayMilliseconds;
     protected bool _canShot = true;
     protected List<Vector3> _bulletDirections;

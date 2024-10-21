@@ -4,17 +4,27 @@ public class PlayerMovement : MonoBehaviour
 {
     private float _speed;
 
+    private bool _canMove;
 
     private void Start()
     {
         _speed = 3.5f;
+        _canMove = true;
+    }
+
+    public void MovementPossibility(bool canMove)
+    {
+        _canMove = canMove;
     }
 
     public void Move()
     {
         var x = Input.GetAxisRaw("Horizontal");
         var y = Input.GetAxisRaw("Vertical");
-        transform.Translate(new Vector3(x, y, 0) * Time.deltaTime * _speed);
+        if (_canMove)
+        {
+            transform.Translate(new Vector3(x, y, 0) * Time.deltaTime * _speed);
+        }
     }
 
     private void Update()
